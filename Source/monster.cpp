@@ -2582,7 +2582,8 @@ void __fastcall M_TryH2HHit(int i, int pnum, int Hit, int MinDam, int MaxDam)
 						v21 = plr[v7]._pMaxHP;
 						if (v21 > 64) {
 							v22 = plr[v7]._pMaxHPBase;
-							if (v22 > 64) {
+							bool disableBlackDeathHPCrippling = true;
+							if (!disableBlackDeathHPCrippling && v22 > 64) {
 								v23 = v21 - 64;
 								//v26 = __OFSUB__(plr[v7]._pHitPoints, v23);
 								v24 = plr[v7]._pHitPoints == v23;
