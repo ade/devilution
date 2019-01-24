@@ -3931,13 +3931,11 @@ void __fastcall OperateShrine(int pnum, int i, int sType)
 	int v21;  // eax
 	int v60;  // ebx
 	int j;    // edi
-	int v72;  // edi
 	int v88;  // ebx
 	int v107; // ST38_4
 	int v108; // ST34_4
 	int v133; // eax
 	int xx, yy;
-	int min, max;
 
 	if (dropGoldFlag) {
 		dropGoldFlag = 0;
@@ -4184,21 +4182,11 @@ void __fastcall OperateShrine(int pnum, int i, int sType)
 			plr[pnum]._pSplLvl[SPL_FIREBOLT]++;
 		if (plr[pnum]._pSplLvl[SPL_FIREBOLT] < 15)
 			plr[pnum]._pSplLvl[SPL_FIREBOLT]++;
-		v72 = plr[pnum]._pMaxManaBase / 10;
-		min = plr[pnum]._pMana - plr[pnum]._pManaBase;
-		max = plr[pnum]._pMaxMana - plr[pnum]._pMaxManaBase;
-		plr[pnum]._pManaBase -= v72;
-		plr[pnum]._pMana -= v72;
-		plr[pnum]._pMaxManaBase -= v72;
-		plr[pnum]._pMaxMana -= v72;
-		if ((signed int)(plr[pnum]._pMana & 0xFFFFFFC0) <= 0) {
-			plr[pnum]._pMana = min;
-			plr[pnum]._pManaBase = 0;
-		}
-		if ((signed int)(plr[pnum]._pMaxMana & 0xFFFFFFC0) <= 0) {
-			plr[pnum]._pMaxMana = max;
-			plr[pnum]._pMaxManaBase = 0;
-		}
+
+		/* Fascinating shrines max mana -10% disabled.
+		Instead, drain all mana currently available. */
+		UseMana(pnum, plr[pnum]._pMana);
+
 		InitDiabloMsg(EMSG_SHRINE_FASCINATING);
 		break;
 	case SHRINE_CRYPTIC:
@@ -4309,21 +4297,11 @@ void __fastcall OperateShrine(int pnum, int i, int sType)
 			plr[pnum]._pSplLvl[SPL_CBOLT]++;
 		if (plr[pnum]._pSplLvl[SPL_CBOLT] < 15)
 			plr[pnum]._pSplLvl[SPL_CBOLT]++;
-		v72 = plr[pnum]._pMaxManaBase / 10;
-		min = plr[pnum]._pMana - plr[pnum]._pManaBase;
-		max = plr[pnum]._pMaxMana - plr[pnum]._pMaxManaBase;
-		plr[pnum]._pManaBase -= v72;
-		plr[pnum]._pMana -= v72;
-		plr[pnum]._pMaxManaBase -= v72;
-		plr[pnum]._pMaxMana -= v72;
-		if ((signed int)(plr[pnum]._pMana & 0xFFFFFFC0) <= 0) {
-			plr[pnum]._pMana = min;
-			plr[pnum]._pManaBase = 0;
-		}
-		if ((signed int)(plr[pnum]._pMaxMana & 0xFFFFFFC0) <= 0) {
-			plr[pnum]._pMaxMana = max;
-			plr[pnum]._pMaxManaBase = 0;
-		}
+
+		/* Sacred shrines max mana -10% disabled.
+		Instead, drain all mana currently available. */
+		UseMana(pnum, plr[pnum]._pMana);
+
 		InitDiabloMsg(EMSG_SHRINE_SACRED);
 		break;
 	case SHRINE_SPIRITUAL:
@@ -4401,21 +4379,11 @@ void __fastcall OperateShrine(int pnum, int i, int sType)
 			plr[pnum]._pSplLvl[SPL_HBOLT]++;
 		if (plr[pnum]._pSplLvl[SPL_HBOLT] < 15)
 			plr[pnum]._pSplLvl[SPL_HBOLT]++;
-		v72 = plr[pnum]._pMaxManaBase / 10;
-		min = plr[pnum]._pMana - plr[pnum]._pManaBase;
-		max = plr[pnum]._pMaxMana - plr[pnum]._pMaxManaBase;
-		plr[pnum]._pManaBase -= v72;
-		plr[pnum]._pMana -= v72;
-		plr[pnum]._pMaxManaBase -= v72;
-		plr[pnum]._pMaxMana -= v72;
-		if ((signed int)(plr[pnum]._pMana & 0xFFFFFFC0) <= 0) {
-			plr[pnum]._pMana = min;
-			plr[pnum]._pManaBase = 0;
-		}
-		if ((signed int)(plr[pnum]._pMaxMana & 0xFFFFFFC0) <= 0) {
-			plr[pnum]._pMaxMana = max;
-			plr[pnum]._pMaxManaBase = 0;
-		}
+
+		/* Ornate shrines max mana -10% disabled.
+		Instead, drain all mana currently available. */
+		UseMana(pnum, plr[pnum]._pMana);
+
 		InitDiabloMsg(EMSG_SHRINE_ORNATE);
 		break;
 	case SHRINE_GLIMMERING:
