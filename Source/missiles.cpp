@@ -1228,9 +1228,9 @@ LABEL_50:
 
 BOOLEAN __fastcall Plr2PlrMHit(int pnum, int p, int mindam, int maxdam, int dist, int mtype, int shift)
 {
-	if (FriendlyMode) {
-		return 0;
-	}
+	//if (FriendlyMode) {
+	//	return 0;
+	//}
 
 	int v7;           // edi
 	unsigned char v8; // al
@@ -1431,14 +1431,19 @@ void __fastcall CheckMissileCol(int i, int mindam, int maxdam, BOOLEAN shift, in
 					v16 = v14 - 1;
 					if (v16 == v15)
 						goto LABEL_39;
-					v17 = Plr2PlrMHit(
-					    v15,
-					    v16,
-					    mindama,
-					    maxdam,
-					    missile[v8]._midist,
-					    missile[v8]._mitype,
-					    shift);
+					if(missile[v8]._mitype == MIS_FIREBALL && FriendlyMode && nodel == 1) {
+						//Disables fireball splash damage for players if pvp off
+						v17 = 0;
+					} else {
+						v17 = Plr2PlrMHit(
+							v15,
+							v16,
+							mindama,
+							maxdam,
+							missile[v8]._midist,
+							missile[v8]._mitype,
+							shift);
+					}
 					goto LABEL_35;
 				}
 				v13 = MonsterMHit(
