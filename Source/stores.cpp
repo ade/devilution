@@ -7,7 +7,7 @@ int storenumh;  // weak
 int stextlhold; // weak
 ItemStruct boyitem;
 int stextshold; // idb
-ItemStruct premiumitem[6];
+ItemStruct premiumitem[20];
 void *pSTextBoxCels;
 int premiumlevel; // idb
 int talker;       // weak
@@ -89,7 +89,7 @@ void __cdecl InitStores()
 	stextscrl = 0;
 	numpremium = 0;
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 20; i++)
 		premiumitem[i]._itype = -1;
 
 	boyitem._itype = -1;
@@ -753,7 +753,7 @@ void __fastcall S_ScrollSPBuy(int idx)
 	}
 	v6 = &premiumitem[v4]._iMagical;
 	do {
-		if ((signed int)v6 >= (signed int)&premiumitem[6]._iMagical)
+		if ((signed int)v6 >= (signed int)&premiumitem[20]._iMagical)
 			break;
 		if (*((_DWORD *)v6 - 13) == -1) {
 			v2 -= 4;
@@ -790,7 +790,7 @@ BOOLEAN __cdecl S_StartSPBuy()
 		if (*v0 != -1)
 			++storenumh;
 		v0 += 92;
-	} while ((signed int)v0 < (signed int)&premiumitem[6]._itype);
+	} while ((signed int)v0 < (signed int)&premiumitem[20]._itype);
 	if (storenumh) {
 		v2 = plr[myplr]._pGold;
 		stextsval = 0;

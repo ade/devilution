@@ -7,7 +7,7 @@ extern int storenumh;  // weak
 extern int stextlhold; // weak
 extern ItemStruct boyitem;
 extern int stextshold; // idb
-extern ItemStruct premiumitem[6];
+extern ItemStruct premiumitem[20];
 extern void *pSTextBoxCels;
 extern int premiumlevel; // idb
 extern int talker;       // weak

@@ -4317,13 +4317,17 @@ void __fastcall SpawnOnePremium(int i, int plvl)
 void __fastcall SpawnPremium(int lvl)
 {
 	int i; // eax
+	premiumlevel = lvl - 1;
+	if(premiumlevel < 1) {
+		premiumlevel = 1;
+	}
 
-	if (numpremium < 6) {
-		for (i = 0; i < 6; i++) {
+	if (numpremium < 20) {
+		for (i = 0; i < 20; i++) {
 			if (premiumitem[i]._itype == -1)
 				SpawnOnePremium(i, premiumlevel + premiumlvladd[i]);
 		}
-		numpremium = 6;
+		numpremium = 20;
 	}
 	for (i = premiumlevel; premiumlevel < lvl; i = premiumlevel) {
 		qmemcpy(premiumitem, &premiumitem[2], sizeof(ItemStruct));
@@ -4808,7 +4812,7 @@ void __cdecl RecalcStoreStats()
 			healitem[i]._iStatFlag = StoreStatOk(&healitem[i]);
 	}
 
-	for (i = 0; i < 6; i++) {
+	for (i = 0; i < 20; i++) {
 		if (premiumitem[i]._itype != -1)
 			premiumitem[i]._iStatFlag = StoreStatOk(&premiumitem[i]);
 	}
