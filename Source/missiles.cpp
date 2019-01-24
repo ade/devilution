@@ -1228,6 +1228,10 @@ LABEL_50:
 
 BOOLEAN __fastcall Plr2PlrMHit(int pnum, int p, int mindam, int maxdam, int dist, int mtype, int shift)
 {
+	if (FriendlyMode) {
+		return 0;
+	}
+
 	int v7;           // edi
 	unsigned char v8; // al
 	int v9;           // eax

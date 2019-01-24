@@ -90,7 +90,7 @@ void __cdecl mainmenu_loop()
 
 	do {
 		menu = 0;
-		if (!UiMainMenuDialog("Diablo v1.09", &menu, effects_play_sound, 30))
+		if (!UiMainMenuDialog("Diablo v1.09 ade v1", &menu, effects_play_sound, 30))
 			TermMsg("Unable to display mainmenu");
 
 		switch (menu) {

@@ -17,7 +17,7 @@ BOOLEAN screensaver_enabled_prev;
 /* data */
 
 char gszVersionNumber[260] = "internal version unknown";
-char gszProductName[260] = "Diablo v1.09";
+char gszProductName[260] = "Diablo v1.09 ade v1";
 
 void __fastcall init_cleanup(BOOLEAN show_cursor)
 {
