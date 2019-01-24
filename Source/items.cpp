@@ -2824,9 +2824,9 @@ LABEL_13:
 		itemavail[0] = itemavail[MAXITEMS - numitems - 1];
 
 		if (!monster[m]._uniqtype)
-			SetupAllItems(ii, idx, GetRndSeed(), monster[m].MData->mLevel, 1, onlygood, 0, 0);
+			SetupAllItems(ii, idx, GetRndSeed(), monster[m].mLevel, 1, onlygood, 0, 0);
 		else
-			SetupAllItems(ii, idx, GetRndSeed(), monster[m].MData->mLevel, 15, onlygood, 0, 0);
+			SetupAllItems(ii, idx, GetRndSeed(), monster[m].mLevel, 15, onlygood, 0, 0);
 
 		++numitems;
 		if (sendmsg)
